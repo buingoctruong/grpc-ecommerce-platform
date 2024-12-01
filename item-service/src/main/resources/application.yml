@@ -1,25 +1,17 @@
 grpc:
   server:
-    port: 2222
+    port: 3333
 spring:
   application:
     name: item-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345
   jpa:
-    # Provide database platform that is being used
-    database-platform: org.hibernate.dialect.H2Dialect
-    # Show sql when spring data jpa performs query
+    database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     properties:
       hibernate:
-        # Format queries
         format_sql: true
-    datasource:
-      # URL connection to database (spring-security is database name)
-      url: jdbc:h2:mem:spring-security
-      # H2 sql Driver
-      driver-class-name: org.h2.Driver
-      username: root
-      password: 12345
-    h2:
-      console:
-        enabled: true
