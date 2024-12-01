@@ -1,0 +1,3 @@
+# Ignore build directories for all modules
+**/target/
+**/build/

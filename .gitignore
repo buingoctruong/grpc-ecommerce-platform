@@ -1,0 +1,27 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+/.idea/
+/.vscode/
+*.iml
+
+# Maven and Gradle directories
+/target/
+/out/
+/build/
+/.gradle/
+/mvnw
+/mvnw.cmd
+/.mvn/wrapper/maven-wrapper.jar
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Environment and configuration files
+*.env
+application-*.properties
+application-*.yml

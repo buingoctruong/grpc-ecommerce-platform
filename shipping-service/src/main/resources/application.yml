@@ -1,0 +1,6 @@
+grpc:
+  server:
+    port: 1111
+spring:
+  application:
+    name: shipping-service

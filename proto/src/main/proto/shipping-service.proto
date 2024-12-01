@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package shipping;
+
+import "item-service.proto";
+
+option java_multiple_files = true;
+option java_package = "github.io.truongbn.shipping";
+
+message ShippingFeeInformationRequest {
+    item.ItemInformation item = 1;
+    int32 quantities = 2;
+    Address shipping_address = 3;
+}
+
+message ShippingFeeInformationResponse {
+    double fee = 1;
+}
+
+message Address {
+    string postal_code = 1;
+    string city = 2;
+    string state = 3;
+    string street = 4;
+    string building_name = 5;
+    string room_number = 6;
+}
+
+service ShippingService {
+    rpc GetShippingFee (ShippingFeeInformationRequest) returns (ShippingFeeInformationResponse);
+}
