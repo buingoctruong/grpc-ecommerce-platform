@@ -1,0 +1,17 @@
+grpc:
+  server:
+    port: 6666
+spring:
+  application:
+    name: tracking-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
