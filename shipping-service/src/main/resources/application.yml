@@ -1,6 +1,6 @@
 grpc:
   server:
-    port: 1111
+    port: 5555
 spring:
   application:
     name: shipping-service
