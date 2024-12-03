@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import github.io.truongbn.entiry.Order;
+import github.io.truongbn.entiry.OrderRequest;
 import github.io.truongbn.inventory.InventorySyncResponse;
 import github.io.truongbn.repository.OrderRepository;
 import github.io.truongbn.user.UserDebitBalanceResponse;
@@ -20,8 +21,12 @@ public class OrderService {
     private final InventoryService inventoryService;
     private final UserService userService;
     @Transactional
-    public void purchaseOrder(String itemId, String userId, int purchaseQuantities,
-            double userBalance, double orderAmount) {
+    public void purchaseOrder(OrderRequest orderRequest) {
+        String itemId = orderRequest.getItemId();
+        String userId = orderRequest.getUserId();
+        int purchaseQuantities = orderRequest.getPurchaseQuantities();
+        double userBalance = orderRequest.getUserBalance();
+        double orderAmount = orderRequest.getOrderAmount();
         InventorySyncResponse inventorySyncResponse = inventoryService.syncInventory(itemId,
                 purchaseQuantities);
         if (!inventorySyncResponse.getResult()) {
