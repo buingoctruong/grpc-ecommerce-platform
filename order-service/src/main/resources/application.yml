@@ -1,6 +1,15 @@
 grpc:
   server:
     port: 4444
+  client:
+    # inventory-service
+    inventory-service:
+      address: static://localhost:2222
+      negotiationType: PLAINTEXT
+    # user-service
+    user-service:
+      address: static://localhost:7777
+      negotiationType: PLAINTEXT
 spring:
   application:
     name: order-service
