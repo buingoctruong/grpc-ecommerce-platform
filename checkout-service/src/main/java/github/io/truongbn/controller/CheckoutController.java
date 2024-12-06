@@ -1,5 +1,6 @@
 package github.io.truongbn.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +13,7 @@ import github.io.truongbn.service.ShippingService;
 import github.io.truongbn.service.UserService;
 import github.io.truongbn.shipping.Address;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
 @RequestMapping("/checkout")
 @RequiredArgsConstructor
@@ -23,6 +22,7 @@ public class CheckoutController {
     private final ItemService itemService;
     private final ShippingService shippingService;
     private final UserService userService;
+    @PostMapping("/order")
     public CheckoutResponse checkoutOrder(@RequestBody CheckoutRequest checkoutRequest) {
         var itemId = checkoutRequest.getItemId();
         var userId = checkoutRequest.getUserId();
