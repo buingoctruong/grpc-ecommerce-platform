@@ -31,11 +31,6 @@
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty</artifactId>
         </dependency>
-        <!-- proto to json for REST -->
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java-util</artifactId>
-        </dependency>
         <!-- Swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>
