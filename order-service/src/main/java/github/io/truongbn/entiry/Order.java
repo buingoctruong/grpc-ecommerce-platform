@@ -1,13 +1,10 @@
 package github.io.truongbn.entiry;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "item")
+@Table(name = "`order`")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,11 +13,14 @@ import lombok.*;
 public class Order {
     @Id
     private String id;
+    @Column(name = "item_id")
     private String itemId;
+    @Column(name = "user_id")
     private String userId;
     @Column(name = "purchase_quantities")
     private int purchaseQuantities;
     @Column(name = "order_amount")
     private double orderAmount;
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

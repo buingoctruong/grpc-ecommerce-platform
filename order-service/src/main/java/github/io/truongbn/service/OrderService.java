@@ -21,7 +21,7 @@ public class OrderService {
     private final InventoryService inventoryService;
     private final UserService userService;
     @Transactional
-    public void purchaseOrder(OrderRequest orderRequest) {
+    public Order purchaseOrder(OrderRequest orderRequest) {
         String itemId = orderRequest.getItemId();
         String userId = orderRequest.getUserId();
         int purchaseQuantities = orderRequest.getPurchaseQuantities();
@@ -34,7 +34,7 @@ public class OrderService {
                     "Couldn't update inventory for the item %s".formatted(itemId));
         }
         UserDebitBalanceResponse userDebitBalanceResponse = userService
-                .executeUserDebitBalance(userId, userBalance - orderAmount);
+                .executeUserDebitBalance(userId, orderAmount);
         if (!userDebitBalanceResponse.getResult()) {
             throw new IllegalStateException(
                     "Couldn't update balance for the user %s".formatted(itemId));
@@ -42,6 +42,6 @@ public class OrderService {
         Order order = Order.builder().id(UUID.randomUUID().toString()).itemId(itemId).userId(userId)
                 .orderAmount(orderAmount).purchaseQuantities(purchaseQuantities).status(PICKUP)
                 .build();
-        orderRepository.save(order);
+        return orderRepository.save(order);
     }
 }
