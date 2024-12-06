@@ -1,6 +1,6 @@
+server:
+  port: 4444
 grpc:
-  server:
-    port: 4444
   client:
     # inventory-service
     inventory-service:
@@ -24,3 +24,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+# Swagger
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
