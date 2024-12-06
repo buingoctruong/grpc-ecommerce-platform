@@ -25,7 +25,6 @@ public class OrderService {
         String itemId = orderRequest.getItemId();
         String userId = orderRequest.getUserId();
         int purchaseQuantities = orderRequest.getPurchaseQuantities();
-        double userBalance = orderRequest.getUserBalance();
         double orderAmount = orderRequest.getOrderAmount();
         InventorySyncResponse inventorySyncResponse = inventoryService.syncInventory(itemId,
                 purchaseQuantities);
