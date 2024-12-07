@@ -1,14 +1,19 @@
+# gRPC configuration
 grpc:
   server:
+    # Sets the port number for the gRPC server to listen on
     port: 2222
 spring:
   application:
+    # Defines the name of the Spring Boot application
     name: inventory-service
+  # DataSource configuration for database connection
   datasource:
     url: jdbc:mysql://localhost:3306/ecommerce
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 12345
+  # JPA (Java Persistence API) configuration
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
